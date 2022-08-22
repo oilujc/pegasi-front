@@ -1,0 +1,62 @@
+<div class="form-container">
+    <h1>Crear usuario</h1>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>
+                Nombre
+            </mat-label>
+            <input matInput formControlName="firstName" required>
+
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>
+                Apellido
+            </mat-label>
+            <input matInput formControlName="lastName">
+
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>
+                Edad
+            </mat-label>
+            <input matInput type="number" formControlName="age">
+
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>Sexo</mat-label>
+            <mat-select formControlName="gender">
+                <mat-option [value]="'male'">
+                    Hombre
+                </mat-option>
+                <mat-option [value]="'female'">
+                    Mujer
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <label id="example-radio-group-label">Embarazo o lactancia?</label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+            formControlName="maternity">
+            <mat-radio-button class="example-radio-button" [value]="'yes'">
+                Si
+            </mat-radio-button>
+            <mat-radio-button class="example-radio-button" [value]="'no'">
+                No
+            </mat-radio-button>
+        </mat-radio-group>
+        <mat-form-field appearance="outline">
+            <mat-label>Fecha de nacimiento</mat-label>
+            <input matInput [matDatepicker]="birthDate" formControlName="birthDate">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+            <mat-datepicker #birthDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="form-field" appearance="outline">
+            <mat-label>
+                Teléfono
+            </mat-label>
+            <input matInput formControlName="phone">
+
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!userForm.valid">Crear Usuario</button>
+    </form>
+</div>

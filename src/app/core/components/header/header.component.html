@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+<div>
+    <a routerLink="/home">Pegasi</a>
+</div>
+<div>
+    <ul class="navigation-items">
+        <li *ngIf="(auth$ | async)?.user">
+            <a (click)="logout()">Salir</a>
+        </li>
+    </ul>
+</div>
+</mat-toolbar>
